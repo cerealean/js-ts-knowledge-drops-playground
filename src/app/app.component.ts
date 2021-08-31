@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RngApiService } from './rng-api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'js-ts-knowledge-drops-playground';
+  constructor(private rngService: RngApiService) {}
+
+
 }

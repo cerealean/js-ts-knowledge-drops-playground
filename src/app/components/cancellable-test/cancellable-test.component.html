@@ -1,12 +1,12 @@
 <div fxLayout="row" fxLayoutGap="3px">
   <div fxFlex>
     <h3>Promise</h3>
-    <button (click)="getRandomNumberWithPromise()">Get Random Number</button>
+    <button mat-raised-button color="primary" (click)="getRandomNumberWithPromise()">Get Random Number</button>
   </div>
   <div fxFlex>
     <h3>Observable</h3>
-    <button (click)="setRandomNumberObservable()">Set Observable</button><br />
-    <button (click)="subscribeButCancelEarly()">Sub & Cancel</button><br />
-    <button (click)="subscribeAndLetFinish()">Sub</button><br />
+    <button mat-raised-button color="primary" (click)="setRandomNumberObservable()">Set Observable</button><br />
+    <button mat-raised-button color="warn" (click)="subscribeButCancelEarly()">Sub & Cancel</button><br />
+    <button mat-raised-button color="accent" (click)="subscribeAndLetFinish()">Sub</button><br />
   </div>
 </div>

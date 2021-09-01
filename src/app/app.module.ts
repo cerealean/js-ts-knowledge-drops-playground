@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CancellableTestComponent } from './components/cancellable-test/cancellable-test.component';
 import { AwaitVsObservableComponent } from './components/await-vs-observable/await-vs-observable.component';
 import { HandlingMultipleSubscriptionsComponent } from './components/handling-multiple-subscriptions/handling-multiple-subscriptions.component';
+import { TestingAsyncOnInitComponent } from './components/testing-async-on-init/testing-async-on-init.component';
+import { MultipleHttpRequestsWithObservablesComponent } from './components/multiple-http-requests-with-observables/multiple-http-requests-with-observables.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { HandlingMultipleSubscriptionsComponent } from './components/handling-mu
     PlayWithPromisesComponent,
     CancellableTestComponent,
     AwaitVsObservableComponent,
-    HandlingMultipleSubscriptionsComponent
+    HandlingMultipleSubscriptionsComponent,
+    TestingAsyncOnInitComponent,
+    MultipleHttpRequestsWithObservablesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,8 @@ import { HandlingMultipleSubscriptionsComponent } from './components/handling-mu
     HttpClientModule,
     MatCardModule,
     FlexLayoutModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

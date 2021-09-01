@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { forkJoin, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-play-with-promises',
@@ -14,25 +15,25 @@ export class PlayWithPromisesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public async doIt() {
-    const [asyncResults, syncResults] = await Promise.all([this.doAsynchronously(), this.doSynchronously()]);
+  public async testTimeWithPromises() {
+    const [asyncResults, syncResults] = await Promise.all([this.doAsynchronouslyWithPromise(), this.doSynchronouslyWithPromise()]);
     this.asyncResults = asyncResults;
     this.syncResults = syncResults;
   }
 
-  public async doSynchronously(numberOfTimes = 5) {
+  public async doSynchronouslyWithPromise() {
     const start = performance.now();
-    for(let i = 0; i < numberOfTimes; i++) {
+    for(let i = 0; i < 5; i++) {
       await this.makeQuicklyResolveablePromise(1000);
     }
     const finish = performance.now();
     return finish - start;
   }
 
-  public async doAsynchronously(numberOfTimes = 5) {
+  public async doAsynchronouslyWithPromise() {
     const start = performance.now();
-    let promises: Promise<any>[] = [];
-    for(let i = 0; i < numberOfTimes; i++) {
+    const promises: Promise<any>[] = [];
+    for(let i = 0; i < 5; i++) {
       promises.push(this.makeQuicklyResolveablePromise(1000));
     }
     await Promise.all(promises);
@@ -40,10 +41,31 @@ export class PlayWithPromisesComponent implements OnInit {
     return finish - start;
   }
 
-  private makeQuicklyResolveablePromise(resolveInSeconds: number, resolveWith?: any): Promise<any> {
-    return new Promise(resolve => {
+  public doAsynchronouslyWithObservable() {
+    const start = performance.now();
+    const obs$ = this.makeQuicklyEmittingObservable(1000);
+    const subscriptions: Subscription[] = [];
+    for(let i = 0; i < 5; i++) {
+      subscriptions.push(obs$.subscribe());
+    }
+    forkJoin(subscriptions).subscribe()
+    const finish = performance.now();
+    return finish - start;
+  }
+
+  private makeQuicklyResolveablePromise(resolveInSeconds: number): Promise<void> {
+    return new Promise<void>(resolve => {
       setTimeout(() => {
-        resolve(resolveWith);
+        resolve();
+      }, resolveInSeconds);
+    });
+  }
+
+  private makeQuicklyEmittingObservable(resolveInSeconds: number): Observable<void> {
+    return new Observable<void>(subscriber => {
+      setTimeout(() => {
+        subscriber.next();
+        subscriber.complete();
       }, resolveInSeconds);
     });
   }

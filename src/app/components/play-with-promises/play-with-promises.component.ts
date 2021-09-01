@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { forkJoin, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-play-with-promises',
@@ -41,31 +40,10 @@ export class PlayWithPromisesComponent implements OnInit {
     return finish - start;
   }
 
-  public doAsynchronouslyWithObservable() {
-    const start = performance.now();
-    const obs$ = this.makeQuicklyEmittingObservable(1000);
-    const subscriptions: Subscription[] = [];
-    for(let i = 0; i < 5; i++) {
-      subscriptions.push(obs$.subscribe());
-    }
-    forkJoin(subscriptions).subscribe()
-    const finish = performance.now();
-    return finish - start;
-  }
-
   private makeQuicklyResolveablePromise(resolveInSeconds: number): Promise<void> {
     return new Promise<void>(resolve => {
       setTimeout(() => {
         resolve();
-      }, resolveInSeconds);
-    });
-  }
-
-  private makeQuicklyEmittingObservable(resolveInSeconds: number): Observable<void> {
-    return new Observable<void>(subscriber => {
-      setTimeout(() => {
-        subscriber.next();
-        subscriber.complete();
       }, resolveInSeconds);
     });
   }

@@ -16,6 +16,7 @@ import { TestingAsyncOnInitComponent } from './components/testing-async-on-init/
 import { MultipleHttpRequestsWithObservablesComponent } from './components/multiple-http-requests-with-observables/multiple-http-requests-with-observables.component';
 import { DoubleSomeNumbersUsingMapComponent } from './components/double-some-numbers-using-map/double-some-numbers-using-map.component';
 import { UnsubscribeUsingTakeUntilComponent } from './components/unsubscribe-using-take-until/unsubscribe-using-take-until.component';
+import { ObjectDestructuringExampleComponent } from './components/object-destructuring-example/object-destructuring-example.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UnsubscribeUsingTakeUntilComponent } from './components/unsubscribe-usi
     TestingAsyncOnInitComponent,
     MultipleHttpRequestsWithObservablesComponent,
     DoubleSomeNumbersUsingMapComponent,
-    UnsubscribeUsingTakeUntilComponent
+    UnsubscribeUsingTakeUntilComponent,
+    ObjectDestructuringExampleComponent
   ],
   imports: [
     BrowserModule,

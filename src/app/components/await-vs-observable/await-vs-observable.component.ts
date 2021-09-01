@@ -11,7 +11,7 @@ export class AwaitVsObservableComponent  {
 
   constructor(private readonly randomNumberService: RandomNumberService) { }
 
-  public async multiplyWithAwait(): Promise<void> {
+  public async multiplyWithPromiseAwait(): Promise<void> {
     const randomNumber = await this.randomNumberService.getRandomNumber().toPromise();
     const numberDoubled = await this.randomNumberService.doubleTheRandomNumber(randomNumber).toPromise();
     const numberQuadrupled = await this.randomNumberService.doubleTheRandomNumber(numberDoubled).toPromise();

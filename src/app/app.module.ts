@@ -10,13 +10,15 @@ import { PlayWithPromisesComponent } from './components/play-with-promises/play-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CancellableTestComponent } from './components/cancellable-test/cancellable-test.component';
 import { AwaitVsObservableComponent } from './components/await-vs-observable/await-vs-observable.component';
+import { HandlingMultipleSubscriptionsComponent } from './components/handling-multiple-subscriptions/handling-multiple-subscriptions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayWithPromisesComponent,
     CancellableTestComponent,
-    AwaitVsObservableComponent
+    AwaitVsObservableComponent,
+    HandlingMultipleSubscriptionsComponent
   ],
   imports: [
     BrowserModule,

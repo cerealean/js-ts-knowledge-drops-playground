@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RngApiService } from './rng-api.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +6,5 @@ import { RngApiService } from './rng-api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private rngService: RngApiService) {}
-
-
+  constructor() {}
 }

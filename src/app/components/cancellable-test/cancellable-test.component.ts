@@ -22,6 +22,7 @@ export class CancellableTestComponent implements OnDestroy {
 
   public getRandomNumberWithPromise(): void {
     console.log('Going to grab a random number with the HTTP call wrapped in a promise. This is not cancellable!');
+    console.log('Because this was converted to a promise, the logic was executed immediately!');
     this.randomNumberService.getRandomNumber().toPromise().then(val => {
       console.log(`With a promise, random number is ${val}`);
     });
@@ -29,6 +30,7 @@ export class CancellableTestComponent implements OnDestroy {
 
   public setRandomNumberObservable(): void {
     this.randomNumber$ = this.randomNumberService.getRandomNumber();
+    console.log('The observable was created, however the logic will not execute until it is subscribed!');
   }
 
   public subscribeButCancelEarly(): void {
@@ -43,6 +45,7 @@ export class CancellableTestComponent implements OnDestroy {
   }
 
   private subscribeToObservable(): Subscription {
+    console.log('Subscribed!');
     return this.randomNumber$.pipe(take(1)).subscribe(val => {
       console.log(`With an observable, random number is ${val}`)
     });

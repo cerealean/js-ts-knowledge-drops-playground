@@ -28,6 +28,18 @@ export class CancellableTestComponent implements OnDestroy {
     });
   }
 
+  public tryToCancelPromise(): void {
+    console.log('Creating promise');
+    let randomNumberPromise = this.randomNumberService.getRandomNumber().toPromise();
+    randomNumberPromise.then(val => {
+      console.log(`With a promise, random number is ${val}`);
+    });
+    setTimeout(() => {
+      randomNumberPromise = null as any;
+      console.log('Just set the promise to null. Will that cancel it?');
+    }, 1500);
+  }
+
   public setRandomNumberObservable(): void {
     this.randomNumber$ = this.randomNumberService.getRandomNumber();
     console.log('The observable was created, however the logic will not execute until it is subscribed!');

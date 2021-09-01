@@ -15,6 +15,7 @@ import { HandlingMultipleSubscriptionsComponent } from './components/handling-mu
 import { TestingAsyncOnInitComponent } from './components/testing-async-on-init/testing-async-on-init.component';
 import { MultipleHttpRequestsWithObservablesComponent } from './components/multiple-http-requests-with-observables/multiple-http-requests-with-observables.component';
 import { DoubleSomeNumbersUsingMapComponent } from './components/double-some-numbers-using-map/double-some-numbers-using-map.component';
+import { UnsubscribeUsingTakeUntilComponent } from './components/unsubscribe-using-take-until/unsubscribe-using-take-until.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { DoubleSomeNumbersUsingMapComponent } from './components/double-some-num
     HandlingMultipleSubscriptionsComponent,
     TestingAsyncOnInitComponent,
     MultipleHttpRequestsWithObservablesComponent,
-    DoubleSomeNumbersUsingMapComponent
+    DoubleSomeNumbersUsingMapComponent,
+    UnsubscribeUsingTakeUntilComponent
   ],
   imports: [
     BrowserModule,

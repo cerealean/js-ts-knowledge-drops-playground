@@ -1,5 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { RandomNumberService } from 'src/app/random-number.service';
 
@@ -23,7 +22,7 @@ export class AwaitVsObservableComponent  {
   /**
    * This does the same as above except by using nested observables
    *
-   * ToDo: In more advanced kd -> how to unsubscribe from multiple subscriptions
+   * ToDo: how to unsubscribe from multiple subscriptions
    */
   public multiplyWithObservable(): void {
     this.randomNumberService.getRandomNumber().pipe(take(1)).subscribe(number => {

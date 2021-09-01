@@ -14,6 +14,7 @@ import { AwaitVsObservableComponent } from './components/await-vs-observable/awa
 import { HandlingMultipleSubscriptionsComponent } from './components/handling-multiple-subscriptions/handling-multiple-subscriptions.component';
 import { TestingAsyncOnInitComponent } from './components/testing-async-on-init/testing-async-on-init.component';
 import { MultipleHttpRequestsWithObservablesComponent } from './components/multiple-http-requests-with-observables/multiple-http-requests-with-observables.component';
+import { DoubleSomeNumbersUsingMapComponent } from './components/double-some-numbers-using-map/double-some-numbers-using-map.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MultipleHttpRequestsWithObservablesComponent } from './components/multi
     AwaitVsObservableComponent,
     HandlingMultipleSubscriptionsComponent,
     TestingAsyncOnInitComponent,
-    MultipleHttpRequestsWithObservablesComponent
+    MultipleHttpRequestsWithObservablesComponent,
+    DoubleSomeNumbersUsingMapComponent
   ],
   imports: [
     BrowserModule,
